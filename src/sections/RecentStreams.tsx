@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import {
   ArrowUpDown,
   Music,
@@ -11,54 +10,22 @@ import {
   Podcast,
 } from 'lucide-react';
 import { format } from 'date-fns';
-import recentStreams from '@/data/recentStreams';
-
-type StreamData = {
-  song: string;
-  artist: string;
-  date: string;
-  streams: number;
-  userId: string;
-};
+import { useStreamStore, StreamData } from '@/store/useStreamStore';
 
 export default function RecentStreams() {
-  const [data, setData] = useState<StreamData[]>([]);
-  const [sortConfig, setSortConfig] = useState({
-    key: '',
-    direction: '',
-  });
-  const [searchQuery, setSearchQuery] = useState('');
+  const { data, searchQuery, clickedSource, setSearchQuery, sortTable } =
+    useStreamStore();
 
-  const sortTable = (key: keyof StreamData) => {
-    let direction = 'asc';
-    if (sortConfig.key === key && sortConfig.direction === 'asc') {
-      direction = 'desc';
-    }
-    const sortedData = [...data].sort((a, b) => {
-      if (a[key] < b[key]) return direction === 'asc' ? -1 : 1;
-      if (a[key] > b[key]) return direction === 'asc' ? 1 : -1;
-      return 0;
-    });
-    setData(sortedData);
-    setSortConfig({ key, direction });
-  };
-
-  useEffect(() => {
-    const sortedData = [...recentStreams].sort((a, b) => b.streams - a.streams);
-    setData(sortedData);
-    setSortConfig({ key: 'streams', direction: 'desc' });
-  }, []);
-
-  if (!data) return null;
-
-  const filteredData = data.filter(
-    (stream) =>
+  const filteredData = data.filter((stream) => {
+    if (clickedSource) return stream.revenueSource === clickedSource;
+    return (
       stream.song.toLowerCase().includes(searchQuery.toLowerCase()) ||
       stream.artist.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+    );
+  });
 
   return (
-    <div className="w-full">
+    <div className="w-full bg-white shadow-2xl rounded-2xl p-3 md:p-6">
       <h2 className="text-3xl font-bold mb-3 text-center bg-gradient-to-r from-amber-500 to-orange-700 text-transparent bg-clip-text flex justify-center items-center gap-2">
         <Podcast color="#FE9900" size={30} /> Recent Streams
       </h2>

@@ -1,9 +1,9 @@
 const topSongs = [
-  { name: 'Blinding Lights', artist: 'The Weeknd', streams: 1200000 },
-  { name: 'Save Your Tears', artist: 'The Weeknd', streams: 950000 },
-  { name: 'Levitating', artist: 'Dua Lipa', streams: 900000 },
-  { name: 'Good 4 U', artist: 'Olivia Rodrigo', streams: 850000 },
-  { name: 'Peaches', artist: 'Justin Bieber', streams: 800000 },
+  { song: 'Yellow', plays: 1200000 },
+  { song: 'Blinding Lights', plays: 950000 },
+  { song: 'Stereo Hearts', plays: 870000 },
+  { song: 'Rain Over Me', plays: 820000 },
+  { song: 'City of Stars', plays: 780000 },
 ];
 
 export default topSongs;

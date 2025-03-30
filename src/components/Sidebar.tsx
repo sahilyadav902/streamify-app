@@ -1,15 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import {
-  Menu,
-  CirclePlay,
-  Music,
-  X,
-  ChartPie,
-  Podcast,
-  Play,
-} from 'lucide-react';
+import { Menu, Music, X, ChartPie, Podcast, Play } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const menuItems = [
@@ -19,7 +11,6 @@ const menuItems = [
     icon: <Podcast size={20} />,
     href: '#recentstreams',
   },
-  { name: 'Songs', icon: <CirclePlay size={20} />, href: '#songs' },
   { name: 'Analytics', icon: <ChartPie size={20} />, href: '#analytics' },
 ];
 

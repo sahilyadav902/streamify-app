@@ -22,14 +22,14 @@ type StreamData = {
 };
 
 export default function RecentStreams() {
-  const [data, setData] = useState<StreamData[] | null>();
+  const [data, setData] = useState<StreamData[]>([]);
   const [sortConfig, setSortConfig] = useState({
     key: '',
     direction: '',
   });
   const [searchQuery, setSearchQuery] = useState('');
 
-  const sortTable = (key: any) => {
+  const sortTable = (key: keyof StreamData) => {
     let direction = 'asc';
     if (sortConfig.key === key && sortConfig.direction === 'asc') {
       direction = 'desc';

@@ -95,7 +95,7 @@ export default function RecentStreams() {
               ].map(({ label, key, icon }) => (
                 <th
                   key={key}
-                  onClick={() => sortTable(key)}
+                  onClick={() => sortTable(key as keyof StreamData)}
                   className="px-6 py-3 text-sm font-semibold text-black uppercase tracking-wider cursor-pointer hover:text-white transition-all"
                 >
                   <div className="flex items-center gap-2 justify-center whitespace-nowrap">

@@ -46,24 +46,41 @@ export default function RecentStreams() {
           <thead>
             <tr className="bg-amber-500">
               {[
-                { label: 'Song Name', key: 'song', icon: <Music size={16} /> },
-                { label: 'Artist', key: 'artist', icon: <User size={16} /> },
+                {
+                  label: 'Song Name',
+                  key: 'song',
+                  icon: <Music size={16} />,
+                  width: 'w-[200px]',
+                },
+                {
+                  label: 'Artist',
+                  key: 'artist',
+                  icon: <User size={16} />,
+                  width: 'w-[150px]',
+                },
                 {
                   label: 'Date Streamed',
                   key: 'date',
                   icon: <Calendar size={16} />,
+                  width: 'w-[140px]',
                 },
                 {
                   label: 'Stream Count',
                   key: 'streams',
                   icon: <BarChart size={16} />,
+                  width: 'w-[120px]',
                 },
-                { label: 'User ID', key: 'userId', icon: <User size={16} /> },
-              ].map(({ label, key, icon }) => (
+                {
+                  label: 'User ID',
+                  key: 'userId',
+                  icon: <User size={16} />,
+                  width: 'w-[150px]',
+                },
+              ].map(({ label, key, icon, width }) => (
                 <th
                   key={key}
                   onClick={() => sortTable(key as keyof StreamData)}
-                  className="px-6 py-3 text-sm font-semibold text-black uppercase tracking-wider cursor-pointer hover:text-white transition-all"
+                  className={`px-4 py-3 text-sm font-semibold text-black uppercase tracking-wider cursor-pointer hover:text-white transition-all ${width}`}
                 >
                   <div className="flex items-center gap-2 justify-center whitespace-nowrap">
                     {icon} {label} <ArrowUpDown size={14} />
@@ -78,19 +95,19 @@ export default function RecentStreams() {
                 key={index}
                 className="border-b border-gray-200 cursor-pointer hover:bg-gray-200 transition"
               >
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium text-center">
+                <td className="px-4 py-4 text-sm text-gray-900 font-medium text-center w-[200px]">
                   {stream.song}
                 </td>
-                <td className="px-6 py-4 text-sm text-gray-700 text-center">
+                <td className="px-4 py-4 text-sm text-gray-700 text-center w-[150px]">
                   {stream.artist}
                 </td>
-                <td className="px-6 py-4 text-sm text-gray-600 text-center">
+                <td className="px-4 py-4 text-sm text-gray-600 text-center w-[140px]">
                   {format(new Date(stream.date), 'dd-MMM-yyyy')}
                 </td>
-                <td className="px-6 py-4 text-sm font-bold text-green-600 text-center">
+                <td className="px-4 py-4 text-sm font-bold text-green-600 text-center w-[120px]">
                   {stream.streams}
                 </td>
-                <td className="px-6 py-4 text-sm text-gray-500 text-center">
+                <td className="px-4 py-4 text-sm text-gray-500 text-center w-[150px]">
                   {stream.userId}
                 </td>
               </tr>

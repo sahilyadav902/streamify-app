@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Installation & Setup
 
-## Getting Started
+- To start the server locally, use the following commands:
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```code
+npm install
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- View in [https://localhost:3000](https://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Production Link
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- The app is deployed on Vercel.
+- Click on [this link](https://streamify-app-ten.vercel.app) to view.
 
-## Learn More
+## Features & Thought Process
 
-To learn more about Next.js, take a look at the following resources:
+- Opted for a sidebar navigation to enhance usability in a dashboard setting, where the menu items can grow significantly. A navbar would become less user-friendly as the list expands.
+- Implemented a grid layout for metric cards and charts for a clean and responsive design that adapts to all screen sizes.
+- Chose Recharts for data visualization due to its simplicity, customizability and good documentation with examples.
+- Used Zustand for state management for handling the data, sorting, and filtering criteria for Recent Streams table.
+- Design UI using Tailwind CSS for fast and intuitive design scheme.
+- Used Lucide Icons library due to low overhead and reduced code size compared to traditional SVGs.
+- Implemented search and filtering functionality, allowing users to search for songs by title or artist, or filter them dynamically by clicking on a pie chart sector.
+- To maintain usability on mobile devices, the table is horizontally scrollable, couldn't think of a better optimization.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Frontend: Next.js (App Router), Typescript
+- State Management: Zustand
+- UI and Styling: Tailwind CSS, Lucide Icons
+- Data Visualization: Recharts
+- Data Used: Hardcoded

@@ -26,6 +26,9 @@ interface StreamStore {
   sortTable: (key: keyof StreamData) => void;
 }
 
+// Made a store for to be used with the recent streams table
+// Either the filter using Artist or Song Name (searchQuery) or clicking a sector of pie (clickedSource) is stored
+// Further, the data is filtered based on which filter source is used by the user
 export const useStreamStore = create<StreamStore>((set, get) => ({
   data: [...recentStreams].sort((a, b) => b.streams - a.streams),
   sortConfig: { key: 'streams', direction: 'desc' },
@@ -46,6 +49,8 @@ export const useStreamStore = create<StreamStore>((set, get) => ({
     });
   },
 
+  // Sorts the table, in ascending order on first click and in descending order on second click on column heading
+  // Initially sorted the data, using number of Streams in descending order
   sortTable: (key) => {
     const { data, sortConfig } = get();
     let direction: 'asc' | 'desc' = 'asc';

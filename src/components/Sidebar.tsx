@@ -1,11 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { Menu, Music, X, ChartPie, Podcast, Play } from 'lucide-react';
+import { Menu, X, ChartPie, Podcast, Play, ChartLine } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const menuItems = [
-  { name: 'Key Metrics', icon: <Music size={20} />, href: '#keymetrics' },
+  { name: 'Key Metrics', icon: <ChartLine size={20} />, href: '#keymetrics' },
   {
     name: 'Recent Streams',
     icon: <Podcast size={20} />,

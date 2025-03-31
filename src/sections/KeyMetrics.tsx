@@ -9,7 +9,7 @@ export default function KeyMetrics() {
         {metricsData.map((metric, index) => (
           <div
             key={index}
-            className={`${metric.bgColor} text-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300 cursor-pointer`}
+            className={`${metric.bgColor} text-white rounded-lg shadow-md p-4 hover:shadow-xl transition duration-300 cursor-pointer`}
           >
             <div className="flex items-center gap-3">
               <div className="bg-white/20 p-2 rounded-lg">{metric.icon}</div>

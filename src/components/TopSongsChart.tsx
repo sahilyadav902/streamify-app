@@ -24,6 +24,7 @@ interface TopSongsChartProps {
 export default function TopSongsChart({ songsData }: TopSongsChartProps) {
   const [barSize, setBarSize] = useState(50);
 
+  // Calculated barSize based on device viewport being desktop or mobile on first render
   useEffect(() => {
     const updateBarSize = () => {
       setBarSize(window.innerWidth < 768 ? 30 : 50);
@@ -77,6 +78,8 @@ export default function TopSongsChart({ songsData }: TopSongsChartProps) {
             radius={[10, 10, 0, 0]}
             cursor="pointer"
           />
+
+          {/* Created SVG based gradient to fill the bars of chart */}
           <defs>
             <linearGradient id="barGradient" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="#4F46E5" />

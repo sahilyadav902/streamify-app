@@ -11,18 +11,22 @@ import {
 } from 'lucide-react';
 import { format } from 'date-fns';
 import { useStreamStore, StreamData } from '@/store/useStreamStore';
+import { useMemo } from 'react';
 
 export default function RecentStreams() {
   const { data, searchQuery, clickedSource, setSearchQuery, sortTable } =
     useStreamStore();
 
-  const filteredData = data.filter((stream) => {
-    if (clickedSource) return stream.revenueSource === clickedSource;
-    return (
-      stream.song.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      stream.artist.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-  });
+  // Memoized filteredData to prevent recalculations on every re-render
+  const filteredData = useMemo(() => {
+    return data.filter((stream) => {
+      if (clickedSource) return stream.revenueSource === clickedSource;
+      return (
+        stream.song.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        stream.artist.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    });
+  }, [data, clickedSource, searchQuery]);
 
   return (
     <div className="w-full bg-white shadow-2xl rounded-2xl p-3 md:p-6">
